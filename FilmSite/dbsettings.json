@@ -1,0 +1,5 @@
+{
+  "ConnectionString": {
+    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Data‹ase=FilmSite;Trusted_Connection=True;ÃultipleActiveResultSets=true"
+  }
+}

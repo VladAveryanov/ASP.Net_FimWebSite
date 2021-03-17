@@ -1,0 +1,18 @@
+﻿
+@model IEnumerable<Film>
+
+<p>Priv</p>
+<div>
+    @foreach(var e in Model)
+    {
+    <h2>@e.Name</h2>
+    <img src=@e.Img width="200" height="200">
+    <h4>@e.Description</h4>
+    }
+
+    <video width="400" height="300" controls="controls">
+        <source src="" type='video/ogg; codecs="theora, vorbis"'>
+        <source src="" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        <source src="" type='video/webm; codecs="vp8, vorbis"'>
+    </video>
+</div>
