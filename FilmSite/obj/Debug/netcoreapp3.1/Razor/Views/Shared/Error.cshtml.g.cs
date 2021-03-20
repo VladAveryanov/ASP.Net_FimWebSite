@@ -19,8 +19,15 @@ using FilmSite.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "D:\Влад\Prog\FilmSite\FilmSite\Views\_ViewImports.cshtml"
+using FilmSite.Data.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"11c5e6053bf39729f857741c5eecb72a809f43fe", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0f28122da2088ab1fa3e4dbbb5e6260a6361e107", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"14e17b1669d6c73e2142c0da040ce580d13087ed", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

@@ -2,15 +2,14 @@
     Layout = "_Layout";
 }
 
+<!DOCTYPE html>
 
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/css/site.css" rel="stylesheet" type="text/css">
-    
 </head>
 
 <div class="container-fluid">
-    <a class="navbar-brand" href="#">Carousel</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,13 +21,25 @@
             <li class="nav-item">
                 <a class="nav-link" href="/Home/Pur">Купленные фильмы</a>
             </li>
-            <li class="nav-item">
+            @*<li class="nav-item">
                 <a class="nav-link" href="/Home/Enter">Войти в аккаунт</a>
+            </li>*@
+            <li>
+                @if (CurrentUser.Online)
+                {
+                    <a>вы вошли как @CurrentUser.UserName</a>
+                    <a class="nav-link" href="/Home/Exit">Выйти из аккаунта</a>
+                }
+                else
+                { <a class="nav-link" href="/Home/Enter">Войти в аккаунт</a>}
             </li>
         </ul>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+          
+        <form asp-controller="Home" asp-action="Search" method="post">
+            <p>
+                Поиск Фильмов: <input type="text" name="SearchString" />
+                <input type="submit" value="Поиск" href="/Home/Search?searchString=text" />
+            </p>
         </form>
     </div>
 </div>

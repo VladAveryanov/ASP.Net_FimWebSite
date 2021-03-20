@@ -84,8 +84,13 @@ D:\Влад\Prog\FilmSite\FilmSite\bin\Debug\netcoreapp3.1\runtimes\win\lib\netc
 D:\Влад\Prog\FilmSite\FilmSite\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Влад\Prog\FilmSite\FilmSite\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Влад\Prog\FilmSite\FilmSite\bin\Debug\netcoreapp3.1\dbsettings.json
-D:\Влад\Prog\FilmSite\FilmSite\obj\Debug\netcoreapp3.1\FilmSite.csprojAssemblyReference.cache
 D:\Влад\Prog\FilmSite\FilmSite\bin\Debug\netcoreapp3.1\Humanizer.dll
 D:\Влад\Prog\FilmSite\FilmSite\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 D:\Влад\Prog\FilmSite\FilmSite\obj\Debug\netcoreapp3.1\Razor\Views\Home\PurchasedFilms.cshtml.g.cs
 D:\Влад\Prog\FilmSite\FilmSite\obj\Debug\netcoreapp3.1\Razor\Views\Home\Enter.cshtml.g.cs
+D:\Влад\Prog\FilmSite\FilmSite\obj\Debug\netcoreapp3.1\Razor\Views\Home\Registration.cshtml.g.cs
+D:\Влад\Prog\FilmSite\FilmSite\obj\Debug\netcoreapp3.1\Razor\Views\Home\test_view1.cshtml.g.cs
+D:\Влад\Prog\FilmSite\FilmSite\obj\Debug\netcoreapp3.1\Razor\Views\Home\test_view2.cshtml.g.cs
+D:\Влад\Prog\FilmSite\FilmSite\obj\Debug\netcoreapp3.1\Razor\Views\Home\AuthorizationError.cshtml.g.cs
+D:\Влад\Prog\FilmSite\FilmSite\obj\Debug\netcoreapp3.1\FilmSite.csprojAssemblyReference.cache
+D:\Влад\Prog\FilmSite\FilmSite\obj\Debug\netcoreapp3.1\Razor\Views\Home\SearchResult.cshtml.g.cs

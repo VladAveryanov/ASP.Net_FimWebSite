@@ -10,17 +10,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FilmSite.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace FilmSite
 {
     public class Startup
     {
-        public IConfiguration confString { get; }
         public Startup(IConfiguration configuration)
         {
             confString = configuration;
         }
-        
+        public IConfiguration confString { get; }
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -31,6 +32,13 @@ namespace FilmSite
             services.AddTransient<IFilmRepository, EFFilmRepository>();
             services.AddTransient<ICartRepository, EFCartRepository>();
             services.AddTransient<IUserRepository, EFUserRepository>();
+
+            // настрйока аутентификации
+            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            //    .AddCookie(options =>
+            //    {
+            //        options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+            //    });
 
             services.AddControllersWithViews();
             services.AddMvc();
@@ -55,6 +63,8 @@ namespace FilmSite
 
             app.UseRouting();
 
+            //для аутентификации
+            //app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -65,6 +75,8 @@ namespace FilmSite
             });
 
             SeedData.EnsurePopulated(app);
+
+            
         }
     }
 }

@@ -1,20 +1,24 @@
 ﻿@model User
 
+
+
 <body>
-    <form asp-action="Registration" method="post">
+    <form asp-action="Enter" method="post">
         <br />
+        <b>Неверный логин или пароль!</b>
         <br />
         <label asp-for="Name">Имя:</label>
         <input asp-for="Name" /><br /><br />
 
 
-        <label asp-for="Email">Почта:</label>
-        <input asp-for="Email" /><br /><br />
-
         <label asp-for="Password">Пароль:</label>
         <input asp-for="Password" /><br /><br />
 
-        <button type="submit">Зарегистрироваться</button><br />
+
+        <button type="submit">Войти</button><br /><br />
+
+
+        <a href="/Home/Registration">Зарегистрироваться</a><br />
 
     </form>
 </body>
