@@ -1,8 +1,8 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FilmSite.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace FilmSite.Models
@@ -13,5 +13,6 @@ namespace FilmSite.Models
         public DbSet<Film> Films { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Cart> Carts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }

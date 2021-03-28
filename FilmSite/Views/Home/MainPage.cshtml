@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<Film>
+﻿@model IEnumerable<Film>
 
 
 @foreach (var e in Model)
@@ -7,7 +6,7 @@
 <div>
     <h2>@e.Name</h2>
     <img src=@e.Img width="200" height="200">
-    <h4>@e.Description</h4>
+    <h4>@e.ShortDescription</h4>
     <a href="/Home/FilmToWatch?id=@e.FilmID">Смотреть фильм @e.Name</a>
 </div>
 }

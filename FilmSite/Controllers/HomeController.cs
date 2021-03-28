@@ -1,8 +1,11 @@
-﻿using FilmSite.Data.Models;
+﻿using FilmSite.Data.Interfaces;
+using FilmSite.Data.Models;
+using FilmSite.Data.VIewModels;
 using FilmSite.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,21 +19,51 @@ namespace FilmSite.Controllers
 
         private IUserRepository userRepository;
 
+        private ICommentRepository commentRepository;
+
         private ApplicationDbContext _context;
 
-        public HomeController(IFilmRepository repo, IUserRepository user, ApplicationDbContext context)
+        public HomeController(IFilmRepository repo, IUserRepository user, ICommentRepository comment, ApplicationDbContext context)
         {
             filmRepository = repo;
             userRepository = user;
+            commentRepository = comment;
             _context = context;
         }
         public ViewResult Index()
         {
             return View("MainPage", filmRepository.Films);
         }
+
+        [HttpGet]
         public ViewResult FilmToWatch(int id)
         {
-            return View("FilmPage",filmRepository.Films.Where(x => x.FilmID==id));
+            FilmsViewModel fvm = new FilmsViewModel()
+                { Films = filmRepository.Films.Where(x => x.FilmID == id), Comments = commentRepository.Comments };
+
+            ViewBag.FilmID = fvm.Films.FirstOrDefault().FilmID;
+            return View("FilmPage",fvm);
+            //return View("FilmPage",filmRepository.Films.Where(x => x.FilmID==id));
+        }
+
+        [HttpPost]
+        public ViewResult FilmToWatch(Comment cmnt)
+        {
+            if (CurrentUser.UserName != null)
+                cmnt.UserName = CurrentUser.UserName;
+            else
+                cmnt.UserName = "Debil";
+
+            cmnt.CommentTime = DateTime.Now.ToString();
+            cmnt.Dislikes = 0;
+            cmnt.Likes = 0;
+            
+            _context.Comments.Add(cmnt);
+            _context.SaveChanges();
+
+            FilmsViewModel fvm = new FilmsViewModel()
+            { Films = filmRepository.Films.Where(x => x.FilmID == cmnt.FilmID), Comments = commentRepository.Comments };
+            return View("FilmPage", fvm);
         }
 
         public ViewResult Pur()

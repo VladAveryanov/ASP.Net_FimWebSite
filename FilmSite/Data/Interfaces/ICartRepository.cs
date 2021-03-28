@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FilmSite.Models
 {
-    interface ICartRepository
+    public interface ICartRepository
     {
         public IQueryable<Cart> Carts { get; }
     }

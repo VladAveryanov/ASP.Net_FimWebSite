@@ -11,6 +11,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using FilmSite.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using FilmSite.Data.Models;
+using FilmSite.Data.Interfaces;
+using FilmSite.Data.Repository;
 
 namespace FilmSite
 {
@@ -32,6 +35,7 @@ namespace FilmSite
             services.AddTransient<IFilmRepository, EFFilmRepository>();
             services.AddTransient<ICartRepository, EFCartRepository>();
             services.AddTransient<IUserRepository, EFUserRepository>();
+            services.AddTransient<ICommentRepository, EFCommentRepository>();
 
             // настрйока аутентификации
             //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

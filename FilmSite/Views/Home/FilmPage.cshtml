@@ -1,20 +1,64 @@
-﻿
-@model IEnumerable<Film>
+﻿@*@using FilmSite.Data.Models
+    @model IEnumerable<Film>
 
+    <p>Priv</p>
+    <div>
+        @foreach (var e in Model)
+        {
+            <h2>@e.Name</h2>
+            <img src=@e.Img width="200" height="200">
+            <h4>@e.LongDescription</h4>
+
+
+            <video width="400" height="300" controls="controls">
+                <source src=@e.Video type="video/mp4" />
+                <source src=@e.Video type='video/ogg; codecs="theora, vorbis"'>
+                <source src=@e.Video type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                <source src=@e.Video type='video/webm; codecs="vp8, vorbis"'>
+            </video>
+
+            <p> </p>
+        }
+    </div>*@
+
+@using FilmSite.Data.VIewModels
+@using FilmSite.Data.Models
+@model FilmsViewModel
 <p>Priv</p>
 <div>
-    @foreach (var e in Model)
+    @foreach (var e in Model.Films)
     {
-    <h2>@e.Name</h2>
-    <img src=@e.Img width="200" height="200">
-    <h4>@e.Description</h4>
+        <h2>@e.Name</h2>
+        <img src=@e.Img width="200" height="200">
+        <h4>@e.LongDescription</h4>
 
 
-    <video width="400" height="300" controls="controls">
-        <source src=@e.Video type="video/mp4" />
-        <source src=@e.Video type='video/ogg; codecs="theora, vorbis"'>
-        <source src=@e.Video type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-        <source src=@e.Video type='video/webm; codecs="vp8, vorbis"'>
-    </video>
+        <video width="400" height="300" controls="controls">
+            <source src=@e.Video type="video/mp4" />
+            <source src=@e.Video type='video/ogg; codecs="theora, vorbis"'>
+            <source src=@e.Video type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            <source src=@e.Video type='video/webm; codecs="vp8, vorbis"'>
+        </video>
+
+        @foreach (var comment in Model.Comments)
+        {
+            if (comment.FilmID == e.FilmID)
+            {
+                <p>@comment.CommentTime @comment.UserName : @comment.CommentText</p>
+            }
+        }
+        
+
+        <form asp-action="FilmToWatch" method="post">
+            
+            <label asp-for="Comments.FirstOrDefault().CommentText">Оставить комментарий:</label>
+            <input asp-for="Comments.FirstOrDefault().CommentText" />
+            <input type="hidden" value="@Model.Films.FirstOrDefault().FilmID" name="filmID" />
+            
+
+            <button type="submit">Отправить</button><br /><br />
+        </form>
+
     }
 </div>
+
